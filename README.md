@@ -1,8 +1,8 @@
 ![Banner](https://github.com/Esccargot/QuestLog/assets/6577921/b5f5fe67-e51b-4218-a1ed-1b546e6ef41f)
-
 # QuestLog
 
-**QuestLog** is a Kanban-style task management app with various theming options.  Created with **[Godot Engine](https://godotengine.org)** 4.2.1-stable.
+**QuestLog** is a Kanban-style task management app with various theming options.\
+Created with **[Godot Engine](https://godotengine.org)** 4.2.1-stable.
 
 ![Theme_Gothic](https://github.com/Esccargot/QuestLog/assets/6577921/eae843f2-cd10-4068-b1ed-b3fd511db737)
 ![Theme_Hagaki](https://github.com/Esccargot/QuestLog/assets/6577921/415e9361-4e26-4429-8830-3f2de85e6520)
