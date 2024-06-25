@@ -5,7 +5,6 @@
 ## Features
 
 - Create, edit and delete tasks and task tabs
-QuestLog is meant for daily tasks and small single-developer projects that don't need online or backup functionality.
 - Themes with adjustable accent color and sound effects
 - Projects, settings and theme data are auto-saved when the applicaton is closed 
 
@@ -15,6 +14,7 @@ QuestLog is meant for daily tasks and small single-developer projects that don't
 - View task descriptions with right mouse click.
 - Copy colors with right mouse click while hovering over a color selector.
 - Paste colors with shift + right mouse click while hovering over a color selector.
+- QuestLog is currently meant for daily tasks and small single-developer projects that don't need online or backup functionality.
 
 ## Supported Platforms
 
@@ -32,7 +32,7 @@ This application is currently only available for Windows 64-bit.
 
 - Tab move_left/move_right/edit/delete buttons sometimes stay visible even though the mouse has moved off the tab. Mouse over the tab again to fix this.
 - In some themes, using underscores in your text will offset text placement downward, which looks bad. I have been unable to find free fonts for Gothic and Hagaki theme that dont have this issue.
-- Deleting settings/theme files from usefolder might fix potential startup crashes.
+- Deleting settings/theme files from userfolder might fix potential startup crashes.
 
 ## Disclaimers
 
