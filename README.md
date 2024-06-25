@@ -25,7 +25,7 @@ https://github.com/Esccargot/QuestLog/assets/6577921/a502b4af-4c93-4763-9206-0ef
 
 ## Supported Platforms
 This application is currently only available for Windows 64-bit.
-[QuestLog v1.00 release](https://github.com/Esccargot/QuestLog/releases/tag/v1.0.0)
+* **[Download for Windows](https://github.com/Esccargot/QuestLog/releases/tag/v1.0.0)**
 
 ## Potential future features
 - More themes
