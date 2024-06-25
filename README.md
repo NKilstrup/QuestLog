@@ -1,6 +1,6 @@
 # QuestLog
 
-**QuestLog** is a Kanban-style task management app with various theming options.\
+**QuestLog** is a task management app with various theming options.\
 Created with **[Godot Engine](https://godotengine.org)** 4.2.1-stable.
 
 ![Theme_Gothic](https://github.com/Esccargot/QuestLog/assets/6577921/eae843f2-cd10-4068-b1ed-b3fd511db737)
