@@ -1,12 +1,13 @@
 # QuestLog
 
-**QuestLog** is a Kanban-style task management app with various theming options. Created with **[Godot Engine](https://godotengine.org)** 4.2.1-stable.
+**QuestLog** is a Kanban-style task management app with various theming options.
+Created with **[Godot Engine](https://godotengine.org)** 4.2.1-stable.
+
+https://github.com/Esccargot/QuestLog/assets/6577921/a502b4af-4c93-4763-9206-0ef99d81dc0e
 
 ![Theme_Gothic](https://github.com/Esccargot/QuestLog/assets/6577921/eae843f2-cd10-4068-b1ed-b3fd511db737)
 ![Theme_Hagaki](https://github.com/Esccargot/QuestLog/assets/6577921/415e9361-4e26-4429-8830-3f2de85e6520)
 ![Theme_Atomic](https://github.com/Esccargot/QuestLog/assets/6577921/e5d69bce-3086-49a1-9a81-fd6ae8899ad8)
-
-
 
 ## Features
 
@@ -23,8 +24,8 @@
 - QuestLog is currently meant for daily tasks and small single-developer projects that don't need online or backup functionality.
 
 ## Supported Platforms
-
 This application is currently only available for Windows 64-bit.
+[QuestLog v1.00 release](https://github.com/Esccargot/QuestLog/releases/tag/v1.0.0)
 
 ## Potential future features
 - More themes
@@ -34,15 +35,15 @@ This application is currently only available for Windows 64-bit.
 - Calendar system with deadlines / sprints
 - Online / multi-user support
 
+## Disclaimers
+
+Antivirus / Windows Defender might complain when first running the program, since OS functions are called to create/rename/delete files in your %AppData/Roaming/Godot user folder.
+
 ## Known Issues
 
 - Tab move_left/move_right/edit/delete buttons sometimes stay visible even though the mouse has moved off the tab. Mouse over the tab again to fix this.
 - In some themes, using underscores in your text will offset text placement downward, which looks bad. I have been unable to find free fonts for Gothic and Hagaki theme that dont have this issue.
 - Deleting settings/theme files from userfolder might fix potential startup crashes.
-
-## Disclaimers
-
-Antivirus / Windows Defender might complain when first running the program, since OS functions are called to create/rename/delete files in your %AppData/Roaming/Godot user folder.
 
 ## Acknowledgements
 
