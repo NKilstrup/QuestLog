@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Themes" load_steps=2 format=3 uid="uid://gtqav0mjwf68"]
+
+[ext_resource type="Script" path="res://scenes/themes.gd" id="1_nbci6"]
+
+[resource]
+script = ExtResource("1_nbci6")
+active_theme = "hagaki"
+themes = {
+"atomic": {
+"theme_click_sound": "res://assets/audio/click_atomic.mp3",
+"theme_drop_sound": "res://assets/audio/drop_atomic.mp3",
+"theme_font": "res://assets/fonts/font_atomic.otf",
+"theme_font_color": Color(1, 1, 1, 1),
+"theme_texture": "res://assets/textures/theme_ui_atomic.png"
+},
+"gothic": {
+"theme_click_sound": "res://assets/audio/click_gothic.wav",
+"theme_drop_sound": "res://assets/audio/drop_gothic.wav",
+"theme_font": "res://assets/fonts/font_gothic.ttf",
+"theme_font_color": Color(1, 1, 1, 1),
+"theme_texture": "res://assets/textures/theme_ui_gothic.png"
+},
+"hagaki": {
+"theme_click_sound": "res://assets/audio/click_hagaki.mp3",
+"theme_drop_sound": "res://assets/audio/drop_hagaki.mp3",
+"theme_font": "res://assets/fonts/font_hagaki.ttf",
+"theme_font_color": Color(1, 1, 1, 1),
+"theme_texture": "res://assets/textures/theme_ui_hagaki.png"
+}
+}

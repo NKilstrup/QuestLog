@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx7n8ve8onhkt"]
+
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="1_cblh4"]
+[ext_resource type="Script" path="res://scenes/button_text.gd" id="2_bdgh0"]
+[ext_resource type="LabelSettings" uid="uid://b0a00waqwekdn" path="res://resources/theme/labelsettings/default_button_label_settings.tres" id="3_scc31"]
+
+[node name="Button_text" instance=ExtResource("1_cblh4")]
+custom_minimum_size = Vector2(192, 64)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("2_bdgh0")
+button_title = "Button"
+button_themetype = "ButtonSlimColor"
+background_themetype = "ButtonSlimBackground"
+
+[node name="ButtonBackground" parent="." index="0"]
+theme_type_variation = &"ButtonSlimBackground"
+
+[node name="Button" parent="." index="1"]
+theme_type_variation = &"ButtonSlimColor"
+
+[node name="ButtonLabel" type="Label" parent="." index="2"]
+layout_mode = 2
+text = "Button"
+label_settings = ExtResource("3_scc31")
+horizontal_alignment = 1

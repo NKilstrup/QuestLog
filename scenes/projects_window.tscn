@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkc1nwkgo6sr1"]
+
+[ext_resource type="PackedScene" uid="uid://d37vl3pk3it83" path="res://scenes/window_generic.tscn" id="1_jqxqi"]
+[ext_resource type="Script" path="res://scenes/projects_window.gd" id="2_3rhok"]
+[ext_resource type="LabelSettings" uid="uid://hpbx8lxjikud" path="res://resources/theme/labelsettings/default_label_settings.tres" id="2_vdauf"]
+[ext_resource type="LabelSettings" uid="uid://cgh4p2ayde11m" path="res://resources/theme/labelsettings/default_normal_label_settings.tres" id="4_6u3nt"]
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="5_47hlo"]
+
+[node name="ProjectsWindow" instance=ExtResource("1_jqxqi")]
+custom_minimum_size = Vector2(512, 128)
+script = ExtResource("2_3rhok")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="ProjectsContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/ProjectsContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+text = "Projects"
+label_settings = ExtResource("2_vdauf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewProjectsButton" type="MarginContainer" parent="MarginContainer/ProjectsContainer" index="1"]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+
+[node name="NewProjectBackground" type="Panel" parent="MarginContainer/ProjectsContainer/NewProjectsButton" index="0"]
+unique_name_in_owner = true
+modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"TabNewTaskPanel"
+
+[node name="NewProjectButton" type="Button" parent="MarginContainer/ProjectsContainer/NewProjectsButton" index="1"]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="NewProjectLabel" type="Label" parent="MarginContainer/ProjectsContainer/NewProjectsButton" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create new Project"
+label_settings = ExtResource("4_6u3nt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ProjectsContainer" index="2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ProjectsContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NewProjectTitle" type="TextEdit" parent="MarginContainer/ProjectsContainer/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "New Project Title"
+
+[node name="CreateProjectButton" parent="MarginContainer/ProjectsContainer/MarginContainer/HBoxContainer" index="1" instance=ExtResource("5_47hlo")]
+unique_name_in_owner = true
+layout_mode = 2
+button_themetype = "AcceptButton"
+
+[connection signal="mouse_entered" from="MarginContainer/ProjectsContainer/NewProjectsButton/NewProjectButton" to="." method="_on_new_project_button_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/ProjectsContainer/NewProjectsButton/NewProjectButton" to="." method="_on_new_project_button_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/ProjectsContainer/NewProjectsButton/NewProjectButton" to="." method="_on_new_project_button_pressed"]
+[connection signal="button_clicked" from="MarginContainer/ProjectsContainer/MarginContainer/HBoxContainer/CreateProjectButton" to="." method="_on_new_project_button_pressed"]

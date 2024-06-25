@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqk8xt23sfi0c"]
+
+[ext_resource type="Script" path="res://scenes/task_manager.gd" id="1_1674t"]
+[ext_resource type="PackedScene" uid="uid://cl5afsq0axdsn" path="res://scenes/top_bar.tscn" id="2_8khjs"]
+[ext_resource type="PackedScene" uid="uid://bft6v467lj8d1" path="res://scenes/window_bar.tscn" id="2_bokja"]
+
+[sub_resource type="Gradient" id="Gradient_nyq2s"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h24ya"]
+gradient = SubResource("Gradient_nyq2s")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="TaskManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1674t")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"BackgroundPanel"
+
+[node name="TabCornerDecorations" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RightCornerDecor2" type="Panel" parent="TabCornerDecorations"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_type_variation = &"DecorationRightPanel"
+
+[node name="LeftCornerDecor2" type="Panel" parent="TabCornerDecorations"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = -8.0
+grow_vertical = 0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationLeftPanel"
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="WindowBar" parent="Layout" instance=ExtResource("2_bokja")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TopBarContainer" type="MarginContainer" parent="Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="Decoration" type="Control" parent="Layout/TopBarContainer"]
+layout_mode = 2
+
+[node name="DropShadow" type="TextureRect" parent="Layout/TopBarContainer/Decoration"]
+custom_minimum_size = Vector2(1880.51, 24)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -940.0
+offset_top = 64.0
+offset_right = 940.51
+offset_bottom = 128.0
+grow_horizontal = 2
+scale = Vector2(1, 0.25)
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_h24ya")
+
+[node name="MiddleBottomDecor" type="Panel" parent="Layout/TopBarContainer/Decoration"]
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 72.0
+offset_right = 64.0
+offset_bottom = 88.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationBottomPanel"
+
+[node name="RightCornerDecor" type="Panel" parent="Layout/TopBarContainer/Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 9.0
+offset_right = -3.0
+offset_bottom = 73.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_type_variation = &"DecorationRightPanel"
+
+[node name="LeftCornerDecor" type="Panel" parent="Layout/TopBarContainer/Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 66.0
+offset_bottom = 73.0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationLeftPanel"
+
+[node name="TopBar" parent="Layout/TopBarContainer" instance=ExtResource("2_8khjs")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TaskViewScrollContainer" type="ScrollContainer" parent="Layout/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+vertical_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Layout/MarginContainer/TaskViewScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TaskView" type="HBoxContainer" parent="Layout/MarginContainer/TaskViewScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TaskDescriptionLayer" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.431373)
+
+[connection signal="child_order_changed" from="Layout/MarginContainer/TaskViewScrollContainer/MarginContainer/TaskView" to="." method="_on_task_view_child_order_changed"]
+[connection signal="child_order_changed" from="TaskDescriptionLayer" to="." method="_on_task_description_layer_child_order_changed"]
+[connection signal="gui_input" from="TaskDescriptionLayer" to="." method="_on_task_description_layer_gui_input"]

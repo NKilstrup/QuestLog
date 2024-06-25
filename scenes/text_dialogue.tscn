@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://ih6bgeh0mjmp"]
+
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="2_afydx"]
+[ext_resource type="Script" path="res://scenes/text_dialogue.gd" id="2_u5lae"]
+
+[node name="TextDialogue" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_u5lae")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"BackgroundPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextField" type="LineEdit" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 32)
+layout_mode = 2
+placeholder_text = "Project name"
+
+[node name="AcceptButton" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_afydx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_themetype = "AcceptButton"
+
+[node name="CancelButton" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_afydx")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_themetype = "CancelButton"
+
+[connection signal="button_clicked" from="MarginContainer/HBoxContainer/AcceptButton" to="." method="_on_accept_button_button_clicked"]
+[connection signal="button_clicked" from="MarginContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_button_clicked"]

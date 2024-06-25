@@ -1,0 +1,166 @@
+[gd_scene load_steps=4 format=3 uid="uid://d37vl3pk3it83"]
+
+[ext_resource type="Script" path="res://scenes/window_generic.gd" id="2_3bahx"]
+
+[sub_resource type="Gradient" id="Gradient_56mrm"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ppumt"]
+gradient = SubResource("Gradient_56mrm")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="WindowGeneric" type="MarginContainer"]
+custom_minimum_size = Vector2(512, 512)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("2_3bahx")
+
+[node name="Decoration" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DropShadow" type="TextureRect" parent="Decoration"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 56.0009
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.25)
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_ppumt")
+
+[node name="MiddleBottomDecor" type="Panel" parent="Decoration"]
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -0.684998
+offset_right = 96.0
+offset_bottom = 23.315
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationBottomPanel"
+
+[node name="RightBottomCornerDecor" type="Panel" parent="Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -82.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_type_variation = &"DecorationRightPanel"
+
+[node name="LeftBottomCornerDecor" type="Panel" parent="Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -82.0
+offset_right = 81.0
+offset_bottom = 14.0
+grow_vertical = 0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationLeftPanel"
+
+[node name="RightTopCornerDecor" type="Panel" parent="Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 81.0
+offset_right = 14.0
+offset_bottom = 177.0
+grow_horizontal = 0
+rotation = -1.5708
+size_flags_horizontal = 8
+mouse_filter = 2
+theme_type_variation = &"DecorationRightPanel"
+
+[node name="LeftTopCornerDecor" type="Panel" parent="Decoration"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+offset_left = 82.0
+offset_top = -15.0
+offset_right = 178.0
+offset_bottom = 81.0
+rotation = 1.5708
+size_flags_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationLeftPanel"
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="BackgroundColor" type="Panel" parent="Background"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"TabBackgroundColor"
+
+[node name="TopDecoration" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopLeftPanelDecor" type="Panel" parent="TopDecoration"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = -21.0
+offset_right = 182.0
+offset_bottom = 3.0
+mouse_filter = 2
+theme_type_variation = &"DecorationTopLeftPanel"
+
+[node name="TopRightPanelDecor" type="Panel" parent="TopDecoration"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -182.0
+offset_top = -20.0
+offset_right = -86.0
+offset_bottom = 4.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationTopRightPanel"

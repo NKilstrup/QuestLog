@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cuos3ap3qgbe6"]
+
+[ext_resource type="Texture2D" uid="uid://4xuarf14bons" path="res://assets/textures/theme_ui_gothic.png" id="1_30hur"]
+
+[resource]
+texture = ExtResource("1_30hur")
+texture_margin_left = 108.0
+texture_margin_right = 108.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 352, 512, 96)

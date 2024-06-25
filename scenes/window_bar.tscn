@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bft6v467lj8d1"]
+
+[ext_resource type="Script" path="res://scenes/window_bar.gd" id="1_5lx6p"]
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="2_2ju0d"]
+
+[node name="WindowBar" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 38.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+script = ExtResource("1_5lx6p")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BarBackground" type="Panel" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"WindowBarBackground"
+
+[node name="BarBackgroundColor" type="Panel" parent="VBoxContainer/Control/BarBackground"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"WindowBarBackgroundColor"
+
+[node name="MinimizeButton" parent="VBoxContainer" instance=ExtResource("2_2ju0d")]
+unique_name_in_owner = true
+layout_mode = 2
+button_themetype = "MinimizeButton"
+play_sound = false
+
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource("2_2ju0d")]
+unique_name_in_owner = true
+layout_mode = 2
+button_themetype = "CancelButton"
+play_sound = false
+
+[connection signal="gui_input" from="VBoxContainer/Control" to="." method="_on_gui_input"]
+[connection signal="button_clicked" from="VBoxContainer/MinimizeButton" to="." method="_on_minimize_button_button_clicked"]
+[connection signal="button_clicked" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_clicked"]

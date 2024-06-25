@@ -1,0 +1,252 @@
+[gd_scene load_steps=7 format=3 uid="uid://ra4jdmqtupyk"]
+
+[ext_resource type="PackedScene" uid="uid://d37vl3pk3it83" path="res://scenes/window_generic.tscn" id="1_5rjod"]
+[ext_resource type="LabelSettings" uid="uid://hpbx8lxjikud" path="res://resources/theme/labelsettings/default_label_settings.tres" id="2_jk32p"]
+[ext_resource type="Script" path="res://scenes/settings_window.gd" id="2_p35jc"]
+[ext_resource type="LabelSettings" uid="uid://b0a00waqwekdn" path="res://resources/theme/labelsettings/default_button_label_settings.tres" id="4_gwlfo"]
+[ext_resource type="LabelSettings" uid="uid://cv061bch1rtw2" path="res://resources/theme/labelsettings/default_small_label_settings.tres" id="5_n0180"]
+[ext_resource type="PackedScene" uid="uid://cx7n8ve8onhkt" path="res://scenes/button_text.tscn" id="6_mo45m"]
+
+[node name="SettingsWindow" instance=ExtResource("1_5rjod")]
+script = ExtResource("2_p35jc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 94
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Panel" type="Panel" parent="MarginContainer" index="0"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"GoldEdgePanel"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." index="4"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer2/VBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Settings"
+label_settings = ExtResource("2_jk32p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer2/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TitleContainer" type="CenterContainer" parent="MarginContainer2/VBoxContainer" index="2"]
+visible = false
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+
+[node name="ThemeSettings" type="VBoxContainer" parent="MarginContainer2/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="MarginContainer2/VBoxContainer/ThemeSettings" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "Resolution"
+label_settings = ExtResource("4_gwlfo")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ResolutionSelector" type="OptionButton" parent="MarginContainer2/VBoxContainer/ThemeSettings" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+
+[node name="ThemeLabel" type="Label" parent="MarginContainer2/VBoxContainer/ThemeSettings" index="2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "Theme"
+label_settings = ExtResource("4_gwlfo")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ThemeContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer/ThemeSettings" index="3"]
+layout_mode = 2
+
+[node name="ThemeSelector" type="OptionButton" parent="MarginContainer2/VBoxContainer/ThemeSettings/ThemeContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+
+[node name="Spacing" type="Control" parent="MarginContainer2/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorPicker" type="Control" parent="MarginContainer2/VBoxContainer" index="5"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+
+[node name="ColorFieldBackground" type="Panel" parent="MarginContainer2/VBoxContainer/ColorPicker" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"GoldEdgePanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer/ColorPicker" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer/ColorPicker/MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorLabel" type="Label" parent="MarginContainer2/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Accent Color"
+label_settings = ExtResource("5_n0180")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer2/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="TopBarAccentColor" type="CheckBox" parent="MarginContainer2/VBoxContainer" index="6"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Apply accent color to top bar"
+
+[node name="TabsAccentColor" type="CheckBox" parent="MarginContainer2/VBoxContainer" index="7"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Apply accent color to all tabs"
+
+[node name="TasksAccentColor" type="CheckBox" parent="MarginContainer2/VBoxContainer" index="8"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "Apply accent color to all tasks"
+
+[node name="Spacing3" type="Control" parent="MarginContainer2/VBoxContainer" index="9"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SoundEffects" type="CheckBox" parent="MarginContainer2/VBoxContainer" index="10"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+button_pressed = true
+text = "Sound Effects"
+
+[node name="Spacing4" type="Control" parent="MarginContainer2/VBoxContainer" index="11"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer2/VBoxContainer" index="12"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Sound effects volume"
+label_settings = ExtResource("5_n0180")
+horizontal_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer2/VBoxContainer" index="13"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+value = 80.0
+
+[node name="Spacing5" type="Control" parent="MarginContainer2/VBoxContainer" index="14"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="DataFolderPanel" type="Panel" parent="MarginContainer2/VBoxContainer" index="15"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_type_variation = &"TabNewTaskPanel"
+
+[node name="FilePathButton" type="Button" parent="MarginContainer2/VBoxContainer/DataFolderPanel" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true
+
+[node name="SaveDataLabel" type="Label" parent="MarginContainer2/VBoxContainer/DataFolderPanel/FilePathButton" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Open save data folder"
+label_settings = ExtResource("5_n0180")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer2/VBoxContainer" index="16"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AcceptButton" parent="MarginContainer2/VBoxContainer/Buttons" index="0" instance=ExtResource("6_mo45m")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Accept"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[node name="CancelButton" parent="MarginContainer2/VBoxContainer/Buttons" index="1" instance=ExtResource("6_mo45m")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Cancel"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[connection signal="gui_input" from="MarginContainer2/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_gui_input"]
+[connection signal="mouse_entered" from="MarginContainer2/VBoxContainer/DataFolderPanel/FilePathButton" to="." method="_on_data_folder_panel_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer2/VBoxContainer/DataFolderPanel/FilePathButton" to="." method="_on_data_folder_panel_mouse_exited"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/DataFolderPanel/FilePathButton" to="." method="_on_file_path_button_pressed"]
+[connection signal="button_clicked" from="MarginContainer2/VBoxContainer/Buttons/AcceptButton" to="." method="_on_accept_settings_pressed"]
+[connection signal="button_clicked" from="MarginContainer2/VBoxContainer/Buttons/CancelButton" to="." method="_on_cancel_pressed"]

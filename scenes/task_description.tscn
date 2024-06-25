@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf76gltdvasr8"]
+
+[ext_resource type="PackedScene" uid="uid://d37vl3pk3it83" path="res://scenes/window_generic.tscn" id="1_v53yx"]
+[ext_resource type="Script" path="res://scenes/task_description.gd" id="1_wsixs"]
+[ext_resource type="LabelSettings" uid="uid://bfnmc68dnpqxu" path="res://resources/theme/labelsettings/tab_title_label_settings.tres" id="3_l8bbq"]
+[ext_resource type="LabelSettings" uid="uid://cv061bch1rtw2" path="res://resources/theme/labelsettings/default_small_label_settings.tres" id="4_eoa2j"]
+[ext_resource type="PackedScene" uid="uid://cx7n8ve8onhkt" path="res://scenes/button_text.tscn" id="5_kifuc"]
+
+[node name="TaskDescription" instance=ExtResource("1_v53yx")]
+custom_minimum_size = Vector2(560, 512)
+script = ExtResource("1_wsixs")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+
+[node name="TaskTitle" type="Label" parent="MarginContainer/VBoxContainer/Control" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -19.0
+offset_right = 100.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Task Title"
+label_settings = ExtResource("3_l8bbq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionText" type="TextEdit" parent="MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "Description Text"
+wrap_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="CreatedLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Created: "
+label_settings = ExtResource("4_eoa2j")
+
+[node name="EditedLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Last Edited: "
+label_settings = ExtResource("4_eoa2j")
+
+[node name="FinishUpdatingPanel" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="3"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AcceptButton" parent="MarginContainer/VBoxContainer/FinishUpdatingPanel" index="0" instance=ExtResource("5_kifuc")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Accept"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[node name="CancelButton" parent="MarginContainer/VBoxContainer/FinishUpdatingPanel" index="1" instance=ExtResource("5_kifuc")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Cancel"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/DescriptionText" to="." method="_on_description_text_text_changed"]
+[connection signal="button_clicked" from="MarginContainer/VBoxContainer/FinishUpdatingPanel/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="button_clicked" from="MarginContainer/VBoxContainer/FinishUpdatingPanel/CancelButton" to="." method="_on_cancel_button_pressed"]

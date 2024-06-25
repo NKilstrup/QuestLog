@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://biit1ug4kwv4a"]
+
+[ext_resource type="Texture2D" uid="uid://4xuarf14bons" path="res://assets/textures/theme_ui_gothic.png" id="1_ekry3"]
+
+[resource]
+texture = ExtResource("1_ekry3")
+region_rect = Rect2(896, 256, 128, 128)

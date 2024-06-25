@@ -1,0 +1,190 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl5afsq0axdsn"]
+
+[ext_resource type="Script" path="res://scenes/top_bar.gd" id="2_5274r"]
+[ext_resource type="Script" path="res://scenes/calendar_bar.gd" id="3_j4fyd"]
+[ext_resource type="PackedScene" uid="uid://cx7n8ve8onhkt" path="res://scenes/button_text.tscn" id="3_lbaw2"]
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="5_3uqf7"]
+[ext_resource type="LabelSettings" uid="uid://de5eo0h3sot7y" path="res://resources/theme/labelsettings/top_bar_title_label_settings.tres" id="8_t0k72"]
+
+[node name="TopBar" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 86)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 24
+script = ExtResource("2_5274r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TopBarPanel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"TopBarPanel"
+
+[node name="TopBarPanelBackground" type="Panel" parent="MarginContainer/TopBarPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = -11.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TopBarPanelBackground"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+layout_mode = 2
+offset_right = 1896.0
+offset_bottom = 64.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="MarginLeft" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ProjectsButton" parent="Control/MarginContainer2/HBoxContainer2" instance=ExtResource("3_lbaw2")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Projects"
+
+[node name="NewTabButton" parent="Control/MarginContainer2/HBoxContainer2" instance=ExtResource("3_lbaw2")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "New Tab"
+
+[node name="Spacing" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+visible = false
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Decoration" type="Panel" parent="Control/MarginContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Spacing3" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Spacing2" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="PanDecoration2" type="Panel" parent="Control/MarginContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Spacing4" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SettingsButton" parent="Control/MarginContainer2/HBoxContainer2" instance=ExtResource("3_lbaw2")]
+unique_name_in_owner = true
+layout_mode = 2
+button_title = "Settings"
+
+[node name="MarginRight" type="Control" parent="Control/MarginContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -396.0
+offset_right = 396.0
+offset_bottom = 84.0
+grow_horizontal = 2
+
+[node name="CalendarView" type="MarginContainer" parent="Control/CenterContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+script = ExtResource("3_j4fyd")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/CenterContainer/CalendarView"]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="CalendarLeftButton" parent="Control/CenterContainer/CalendarView/HBoxContainer2" instance=ExtResource("5_3uqf7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+button_themetype = "CalendarButtonLeftColor"
+background_themetype = "CalendarButtonLeftBackground"
+
+[node name="CalendarLabelContainer" type="MarginContainer" parent="Control/CenterContainer/CalendarView/HBoxContainer2"]
+z_index = 1
+custom_minimum_size = Vector2(512, 64)
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="TopBarPanel" type="Panel" parent="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarLabelContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"CalendarPanel"
+
+[node name="TopBarPanelColor" type="Panel" parent="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarLabelContainer/TopBarPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"CalendarPanelColor"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarLabelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 76
+theme_override_constants/margin_right = 76
+
+[node name="CalendarLabel" type="Label" parent="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarLabelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.752941, 0.772549, 0.760784, 1)
+theme_override_font_sizes/font_size = 32
+text = "Date (Year, Month, Day, Time)"
+label_settings = ExtResource("8_t0k72")
+horizontal_alignment = 1
+
+[node name="CalendarRightButton" parent="Control/CenterContainer/CalendarView/HBoxContainer2" instance=ExtResource("5_3uqf7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+button_themetype = "CalendarButtonRightColor"
+background_themetype = "CalendarButtonRightBackground"
+
+[connection signal="button_clicked" from="Control/MarginContainer2/HBoxContainer2/ProjectsButton" to="." method="_on_projects_button_button_clicked"]
+[connection signal="button_clicked" from="Control/MarginContainer2/HBoxContainer2/NewTabButton" to="." method="_on_new_tab_button_pressed"]
+[connection signal="button_clicked" from="Control/MarginContainer2/HBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="button_clicked" from="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarLeftButton" to="Control/CenterContainer/CalendarView" method="_on_left_button_pressed"]
+[connection signal="button_clicked" from="Control/CenterContainer/CalendarView/HBoxContainer2/CalendarRightButton" to="Control/CenterContainer/CalendarView" method="_on_right_button_pressed"]

@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://b18bgwjayjs8x"]
+
+[ext_resource type="Script" path="res://scenes/new_tab_window.gd" id="1_jd22n"]
+[ext_resource type="PackedScene" uid="uid://d37vl3pk3it83" path="res://scenes/window_generic.tscn" id="1_ufstm"]
+[ext_resource type="LabelSettings" uid="uid://bfnmc68dnpqxu" path="res://resources/theme/labelsettings/tab_title_label_settings.tres" id="3_i4pmn"]
+[ext_resource type="LabelSettings" uid="uid://cv061bch1rtw2" path="res://resources/theme/labelsettings/default_small_label_settings.tres" id="4_hgh57"]
+[ext_resource type="PackedScene" uid="uid://cx7n8ve8onhkt" path="res://scenes/button_text.tscn" id="5_ipbvs"]
+
+[node name="NewTabWindow" instance=ExtResource("1_ufstm")]
+custom_minimum_size = Vector2(512, 300)
+script = ExtResource("1_jd22n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." index="3"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="WindowTitle" type="CenterContainer" parent="MarginContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NewTabLabel" type="Label" parent="MarginContainer/VBoxContainer/WindowTitle" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Tab"
+label_settings = ExtResource("3_i4pmn")
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 48)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Tab Name"
+
+[node name="ColorPicker" type="Control" parent="MarginContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+
+[node name="ColorFieldBackground" type="Panel" parent="MarginContainer/VBoxContainer/ColorPicker" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"GoldEdgePanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ColorPicker" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ColorPicker/MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorLabel" type="Label" parent="MarginContainer/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(196, 0)
+layout_mode = 2
+text = "Tab Color"
+label_settings = ExtResource("4_hgh57")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+
+[node name="Spacing" type="Control" parent="MarginContainer/VBoxContainer" index="3"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Buttons" type="MarginContainer" parent="MarginContainer/VBoxContainer" index="4"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 12
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Buttons" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="AcceptButton" parent="MarginContainer/VBoxContainer/Buttons/Buttons" index="0" instance=ExtResource("5_ipbvs")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Accept"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[node name="CancelButton" parent="MarginContainer/VBoxContainer/Buttons/Buttons" index="1" instance=ExtResource("5_ipbvs")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 96)
+layout_mode = 2
+button_title = "Cancel"
+button_themetype = "ButtonGeneric"
+background_themetype = "ButtonGenericBackground"
+
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/ColorPicker/MarginContainer/HBoxContainer/ColorPickerButton" to="." method="_on_color_picker_button_gui_input"]
+[connection signal="button_clicked" from="MarginContainer/VBoxContainer/Buttons/Buttons/AcceptButton" to="." method="_on_accept_button_pressed"]
+[connection signal="button_clicked" from="MarginContainer/VBoxContainer/Buttons/Buttons/CancelButton" to="." method="_on_cancel_button_pressed"]

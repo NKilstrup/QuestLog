@@ -1,0 +1,245 @@
+[gd_scene load_steps=8 format=3 uid="uid://biivehu1it8ae"]
+
+[ext_resource type="Script" path="res://scenes/task_tab.gd" id="1_an33p"]
+[ext_resource type="PackedScene" uid="uid://d37vl3pk3it83" path="res://scenes/window_generic.tscn" id="1_lj534"]
+[ext_resource type="Script" path="res://scenes/task_tab_header.gd" id="3_n43q0"]
+[ext_resource type="LabelSettings" uid="uid://bfnmc68dnpqxu" path="res://resources/theme/labelsettings/tab_title_label_settings.tres" id="4_0jhd4"]
+[ext_resource type="PackedScene" uid="uid://dlxj1jtgqk6ft" path="res://scenes/button_generic.tscn" id="4_b223c"]
+[ext_resource type="Script" path="res://scenes/task_drop_area.gd" id="5_qni8b"]
+[ext_resource type="LabelSettings" uid="uid://cgh4p2ayde11m" path="res://resources/theme/labelsettings/default_normal_label_settings.tres" id="5_vtswx"]
+
+[node name="TaskTab" instance=ExtResource("1_lj534")]
+custom_minimum_size = Vector2(424, 174)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 424.0
+offset_bottom = 174.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 3
+script = ExtResource("1_an33p")
+tab_name = "Generic Tab"
+decorations = false
+
+[node name="Decoration" parent="." index="0"]
+visible = false
+
+[node name="TopDecoration" parent="." index="2"]
+visible = false
+
+[node name="TopDecor" type="Control" parent="." index="3"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TopLeftPanelDecor" type="Panel" parent="TopDecor" index="0"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -21.0
+offset_right = 102.0
+offset_bottom = 3.0
+mouse_filter = 2
+theme_type_variation = &"DecorationTopLeftPanel"
+
+[node name="TopRightPanelDecor" type="Panel" parent="TopDecor" index="1"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -102.0
+offset_top = -20.0
+offset_right = -6.0
+offset_bottom = 4.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_type_variation = &"DecorationTopRightPanel"
+
+[node name="TabDecorations" type="HBoxContainer" parent="." index="4"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="Spacing" type="Control" parent="TabDecorations" index="0"]
+custom_minimum_size = Vector2(76, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Decoration" type="Panel" parent="TabDecorations" index="1"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Spacing3" type="Control" parent="TabDecorations" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Decoration2" type="Panel" parent="TabDecorations" index="3"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"DecorationPanel"
+
+[node name="Spacing2" type="Control" parent="TabDecorations" index="4"]
+custom_minimum_size = Vector2(76, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="5"]
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TaskSectionHeader" type="MarginContainer" parent="VBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 0
+script = ExtResource("3_n43q0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TaskSectionHeader" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopButtons" type="HBoxContainer" parent="VBoxContainer/TaskSectionHeader/VBoxContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="MoveLeftButton" parent="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons" index="0" instance=ExtResource("4_b223c")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MoveRightButton" parent="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons" index="1" instance=ExtResource("4_b223c")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+button_themetype = "ArrowRightButton"
+
+[node name="Control2" type="Control" parent="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons" index="2"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="EditButton" parent="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons" index="3" instance=ExtResource("4_b223c")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+button_themetype = "EditButton"
+
+[node name="DeleteButton" parent="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons" index="4" instance=ExtResource("4_b223c")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+button_themetype = "CancelButton"
+
+[node name="TabTitle" type="Label" parent="VBoxContainer/TaskSectionHeader/VBoxContainer" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Tab Title"
+label_settings = ExtResource("4_0jhd4")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/TaskSectionHeader/VBoxContainer" index="2"]
+visible = false
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_right = 18
+
+[node name="NewTaskBackground" type="Panel" parent="VBoxContainer/MarginContainer" index="0"]
+unique_name_in_owner = true
+modulate = Color(0.6, 0.6, 0.6, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"TabNewTaskPanel"
+
+[node name="NewTask" type="Button" parent="VBoxContainer/MarginContainer" index="1"]
+layout_mode = 2
+focus_mode = 0
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer" index="2"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="NewTaskContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/MarginContainer" index="0"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="NewTaskLabel" type="Label" parent="VBoxContainer/MarginContainer/MarginContainer/NewTaskContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create new task"
+label_settings = ExtResource("5_vtswx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TaskMarginContainer" type="MarginContainer" parent="VBoxContainer" index="2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+script = ExtResource("5_qni8b")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TaskMarginContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ScrollContainerBackground" type="Panel" parent="VBoxContainer/TaskMarginContainer/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"GoldEdgePanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TaskMarginContainer/MarginContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TaskMarginContainer/MarginContainer/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="TaskContainer" type="VBoxContainer" parent="VBoxContainer/TaskMarginContainer/MarginContainer/MarginContainer/ScrollContainer" index="0" groups=["task_container"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[connection signal="gui_input" from="VBoxContainer/TaskSectionHeader" to="VBoxContainer/TaskSectionHeader" method="_on_gui_input"]
+[connection signal="mouse_exited" from="VBoxContainer/TaskSectionHeader" to="VBoxContainer/TaskSectionHeader" method="_on_mouse_exited"]
+[connection signal="button_clicked" from="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons/MoveLeftButton" to="." method="_on_move_left_button_pressed"]
+[connection signal="button_clicked" from="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons/MoveRightButton" to="." method="_on_move_right_button_pressed"]
+[connection signal="button_clicked" from="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons/EditButton" to="." method="_on_tab_edit_button_pressed"]
+[connection signal="button_clicked" from="VBoxContainer/TaskSectionHeader/VBoxContainer/TopButtons/DeleteButton" to="." method="_on_tab_delete_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MarginContainer/NewTask" to="." method="_on_new_task_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/MarginContainer/NewTask" to="." method="_on_new_task_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/NewTask" to="." method="_on_new_task_button_pressed"]

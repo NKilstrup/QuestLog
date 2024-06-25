@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlxj1jtgqk6ft"]
+
+[ext_resource type="Script" path="res://scenes/button.gd" id="2_uwkbb"]
+
+[node name="Button" type="MarginContainer"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("2_uwkbb")
+
+[node name="ButtonBackground" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"SmallButtonBackground"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"ArrowButton"
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
