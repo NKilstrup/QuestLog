@@ -1,4 +1,3 @@
-![Banner](https://github.com/Esccargot/QuestLog/assets/6577921/b5f5fe67-e51b-4218-a1ed-1b546e6ef41f)
 # QuestLog
 
 **QuestLog** is a Kanban-style task management app with various theming options.\
